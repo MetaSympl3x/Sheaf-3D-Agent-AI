@@ -4,7 +4,7 @@
 > **A Real-Time Synthetic Cognition Demo Exploring Qualia, Ontological World Models, and Meta-Learning in a 3D Environment**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Demo](https://img.shields.io/badge/demo-live%20simulation-brightgreen)](https://your-username.github.io/conscious-3d-agent-ai/index3.html)
+[![Demo](https://img.shields.io/badge/demo-live%20simulation-brightgreen)](https://metasympl3x.github.io/Conscious-3D-Agent-AI/)
 
 ---
 
@@ -163,37 +163,3 @@ Licensed under the [MIT License](LICENSE).
 - Inspired by **Integrated Information Theory (IIT)** and the **Free Energy Principle**.
 - Built with **Three.js**, **TensorFlow.js**, and **Pixi.js**.
 - Thanks to the open-source community for robust libraries and tools!
-
-</xaiArtifact>
-
-### Key Improvements
-1. **Clarity & Conciseness**:
-   - Streamlined sections to avoid redundancy (e.g., merged "Deep Dive" into "How It Works").
-   - Used bullet points and tables for quick scanning.
-   - Simplified technical jargon (e.g., "HRRL" → "RL with LSTM") while keeping core concepts.
-2. **Engagement**:
-   - Added emojis for visual appeal and section clarity.
-   - Included a live demo badge (update URL after hosting).
-   - Enhanced diagram with simpler flow, focusing on key data paths.
-3. **Practicality**:
-   - Added **Setup Requirements** to clarify browser/CDN needs.
-   - Included **Contributing** section with actionable steps and ideas from analysis (e.g., Live2D, tests).
-   - Listed specific CDNs (Three.js, TF.js) to address implied dependencies.
-4. **Technical Accuracy**:
-   - Corrected "Q-values" to "state values" for actor-critic clarity.
-   - Noted missing `viz-live2d.js`/`viz-concepts.js` as planned features.
-   - Highlighted robustness (NaN checks, Web Workers) from analysis.
-5. **Future Work**:
-   - Incorporated analysis recommendations (WebAssembly, PPO, accessibility).
-   - Added user-defined sheaf topology as a novel idea.
-6. **Professional Touches**:
-   - Added shields.io badges for license and demo.
-   - Included Acknowledgments section for libraries/inspiration.
-   - Formatted code blocks and Mermaid diagram for better rendering.
-
-### Notes
-- **Demo URL**: Replace `your-username.github.io` with your actual GitHub Pages URL after deploying.
-- **Missing Files**: The README notes Live2D and concept graph as planned, as `viz-live2d.js` and `viz-concepts.js` are implied but not provided. If implemented, update the README to reflect their status.
-- **Testing**: Before publishing, test the README rendering on GitHub and ensure all links (e.g., LICENSE, demo) are valid.
-
-If you want further tweaks (e.g., specific sections, screenshots, or a GitHub Pages setup guide), let me know!
