@@ -3,34 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Unified Conscious AI Simulation v7.0 integrating Sheaf-DIT, Ontological World Models, and Qualia Binding.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧠</text></svg>">
     <title>Unified Conscious AI Simulation v7.0 (Activated Sheaf-DIT)</title>
+
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
     <style>
-        /* CSS styles remain unchanged... */
         :root {
             --bg-dark: #0a0a15;
             --bg-gradient-start: #0a0a15;
             --bg-gradient-end: #1a0a2e;
-            --primary-blue: #4af;
-            --primary-blue-glow: rgba(68, 170, 255, 0.6);
+            --primary-blue: #44aaff;
+            --primary-blue-glow: rgba(68, 170, 255, 0.5);
             --secondary-dark: rgba(10, 10, 30, 0.95);
+            --card-surface: rgba(18, 18, 38, 0.85);
             --border-dark: #2a2a4a;
-            --text-light: #e0e0e0;
-            --text-medium: #aaa;
-            --text-dark: #888;
-            --error-red: #ff6b6b;
+            --text-light: #f0f0f5;
+            --text-medium: #a0a5ba;
+            --text-dark: #70758a;
+            --error-red: #ff5566;
             --warn-orange: #ffa726;
-            --info-green: #4CAF50;
+            --info-green: #00e676;
             --connection-positive: rgba(0, 255, 153, 0.7);
             --connection-negative: rgba(255, 100, 100, 0.7);
             --connection-neutral: rgba(100, 100, 100, 0.4);
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+        }
+
+        /* Base & Scrollbar Reset */
+        *, *::before, *::after {
+            box-sizing: border-box;
         }
 
         body {
             margin: 0;
             background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+            background-attachment: fixed;
             font-family: 'Courier Prime', monospace;
             display: flex;
             justify-content: center;
@@ -38,50 +52,69 @@
             min-height: 100vh;
             padding: 20px;
             color: var(--primary-blue);
-            box-sizing: border-box;
-            overflow-y: auto;
-            overflow-x: hidden;
             line-height: 1.5;
             font-size: 14px;
+            overflow-x: hidden;
+            overflow-y: auto;
         }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0d0d1a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2a2a4a;
+            border-radius: var(--radius-sm);
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-blue);
+        }
+
+        /* Main Container */
         .main-container {
             display: flex;
             flex-direction: column;
             max-width: 1800px;
             width: 100%;
-            margin: 0 auto;
-            padding: 0;
             gap: 20px;
+            margin: 0 auto;
         }
+
+        /* Header */
         .header {
             text-align: center;
             background: var(--secondary-dark);
-            border-radius: 12px;
-            padding: 15px;
-            border: 2px solid var(--primary-blue);
+            border-radius: var(--radius-lg);
+            padding: 16px 20px;
+            border: 1px solid var(--primary-blue);
             box-shadow: 0 0 25px var(--primary-blue-glow);
-            will-change: transform, box-shadow;
-            transition: all 0.3s ease-in-out;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            backdrop-filter: blur(10px);
         }
         .header:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 0 40px var(--primary-blue-glow);
+            transform: translateY(-2px);
+            box-shadow: 0 0 35px var(--primary-blue-glow);
         }
         .header h1 {
             margin: 0;
             color: var(--primary-blue);
-            text-shadow: 0 0 20px var(--primary-blue-glow);
-            font-size: 2em;
-            letter-spacing: 1px;
+            text-shadow: 0 0 15px var(--primary-blue-glow);
+            font-size: 1.85em;
+            letter-spacing: 0.5px;
         }
         .header p {
-            margin: 10px 0 0;
+            margin: 8px 0 0;
             color: var(--text-medium);
-            font-size: 1em;
+            font-size: 0.95em;
         }
+
+        /* Grid Layout */
         .content-grid {
             display: grid;
-            grid-template-columns: 400px 1fr 450px;
+            grid-template-columns: 380px 1fr 420px;
             gap: 20px;
             align-items: start;
         }
@@ -91,36 +124,72 @@
             gap: 20px;
             min-width: 0;
         }
+
+        /* Panels */
         .panel {
             background: var(--secondary-dark);
             border: 1px solid var(--border-dark);
-            border-radius: 10px;
-            padding: 15px;
-            box-sizing: border-box;
+            border-radius: var(--radius-lg);
+            padding: 16px;
             width: 100%;
             position: relative;
+            backdrop-filter: blur(8px);
         }
         .panel h3 {
-            margin-top: 0;
+            margin: 0 0 12px;
             color: var(--primary-blue);
             border-bottom: 2px solid var(--primary-blue);
             padding-bottom: 8px;
             font-size: 1.1em;
+            letter-spacing: 0.5px;
         }
         .panel p {
             font-size: 0.9em;
             color: var(--text-medium);
-            margin-top: -5px;
-            margin-bottom: 12px;
+            margin: -4px 0 12px;
             text-align: center;
+        }
+
+        /* Framework Badges & Metrics */
+        .framework-badge {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: #fff;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+        }
+        .status {
+            color: var(--primary-blue);
+            text-align: center;
+            font-size: 1.05em;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .phi-display {
+            text-align: center;
+            font-size: 1.45em;
+            font-weight: bold;
+            margin: 10px 0 15px;
+            padding: 10px;
+            border-radius: var(--radius-md);
+            background: linear-gradient(45deg, #5c6bc0, #8e24aa);
+            color: #fff;
+            box-shadow: 0 0 15px rgba(142, 36, 170, 0.4);
+            letter-spacing: 1px;
         }
         .metric {
             display: flex;
             justify-content: space-between;
-            margin: 5px 0;
-            padding: 3px 0;
-            font-size: 0.95em;
-            border-bottom: 1px dashed rgba(68, 170, 255, 0.1);
+            align-items: center;
+            margin: 4px 0;
+            padding: 4px 0;
+            font-size: 0.9em;
+            border-bottom: 1px dashed rgba(68, 170, 255, 0.15);
         }
         .metric:last-of-type {
             border-bottom: none;
@@ -137,50 +206,74 @@
             overflow: hidden;
             text-overflow: ellipsis;
         }
-        .phi-display {
-            text-align: center;
-            font-size: 1.5em;
-            font-weight: bold;
-            margin: 10px 0;
-            padding: 8px;
-            border-radius: 8px;
-            background: linear-gradient(45deg, #667eea, #764ba2);
+
+        /* Controls / Buttons */
+        .controls-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+            margin: 12px 0;
+            padding: 10px 0;
+            border-top: 1px solid var(--border-dark);
+            border-bottom: 1px solid var(--border-dark);
+        }
+        button {
+            background: linear-gradient(135deg, #242442, #343454);
+            color: var(--text-light);
+            border: 1px solid #4a4a6e;
+            padding: 8px 12px;
+            cursor: pointer;
+            border-radius: var(--radius-md);
+            font-family: inherit;
+            transition: all 0.2s ease;
+            font-weight: 700;
+            min-width: 100px;
+            font-size: 0.9em;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+        }
+        button:hover {
+            background: linear-gradient(135deg, #343454, #484874);
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 12px var(--primary-blue-glow);
+            transform: translateY(-1px);
+        }
+        button:active {
+            transform: translateY(0);
+        }
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none !important;
+            box-shadow: none !important;
+        }
+        button:focus-visible, input:focus-visible {
+            outline: 2px solid var(--primary-blue);
+            outline-offset: 2px;
+        }
+        button.active {
+            background: linear-gradient(135deg, #445588, #5566aa);
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 15px var(--primary-blue-glow);
             color: #fff;
-            box-shadow: 0 0 12px rgba(102, 126, 234, 0.5);
-            letter-spacing: 1px;
         }
-        .framework-badge {
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            color: white;
-            padding: 6px 12px;
-            border-radius: 12px;
-            font-size: 12px;
-            font-weight: bold;
-            text-align: center;
-            margin-bottom: 10px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-        }
-        .status {
-            color: var(--primary-blue);
-            text-align: center;
-            font-size: 1.1em;
-            font-weight: bold;
-            margin-bottom: 10px;
-            border-bottom: none !important;
-        }
+
+        /* Qualia Dynamics Bars */
         .qualia-bar-container {
-            height: 20px;
+            height: 22px;
             margin: 6px 0;
-            border: 1px solid #333;
-            border-radius: 4px;
+            border: 1px solid #2e2e46;
+            border-radius: var(--radius-sm);
             position: relative;
             overflow: hidden;
-            background: #000;
-            box-shadow: inset 0 0 5px rgba(0,0,0,0.5);
+            background: #0a0a14;
         }
         .qualia-bar {
             height: 100%;
-            border-radius: 3px;
+            border-radius: 2px;
             transition: width 0.3s ease-out;
             position: relative;
             width: 0%;
@@ -193,6 +286,7 @@
         .qualia-metacognition { background: linear-gradient(90deg, #3b82f6, #3498db); }
         .qualia-social { background: linear-gradient(90deg, #14b8a6, #2ecc71); }
         .qualia-temporal { background: linear-gradient(90deg, #ec4899, #e91e63); }
+        
         .qualia-bar::after {
             content: '';
             position: absolute;
@@ -200,8 +294,8 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0) 100%);
-            animation: qualiaWave 2s infinite linear;
+            background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0) 100%);
+            animation: qualiaWave 2.5s infinite linear;
             mix-blend-mode: overlay;
         }
         @keyframes qualiaWave {
@@ -212,39 +306,41 @@
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            color: #fff;
-            font-size: 12px;
-            font-weight: bold;
+            color: #ffffff;
+            font-size: 11px;
+            font-weight: 700;
             text-shadow: 1px 1px 3px rgba(0,0,0,0.9);
             pointer-events: none;
             z-index: 2;
         }
         .qualia-label { left: 8px; }
         .qualia-value { right: 8px; }
+
+        /* Stability Gauge & Sliders */
         .stability-gauge {
             width: 100%;
-            height: 18px;
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 5px;
+            height: 16px;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: var(--radius-sm);
             overflow: hidden;
-            margin: 10px 0;
-            box-shadow: inset 0 0 5px rgba(0,0,0,0.5);
+            margin: 10px 0 14px;
+            border: 1px solid #33334d;
         }
         .stability-fill {
             height: 100%;
             background: linear-gradient(90deg, var(--error-red), var(--warn-orange), var(--info-green));
             width: 0%;
-            transition: width 0.5s ease-out;
+            transition: width 0.4s ease-out;
             will-change: width;
         }
         .slider-container {
-            margin: 10px 0;
+            margin: 8px 0;
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 6px;
         }
         .slider-label {
-            font-size: 13px;
+            font-size: 12px;
             color: var(--primary-blue);
             display: flex;
             justify-content: space-between;
@@ -252,103 +348,41 @@
         }
         input[type="range"] {
             -webkit-appearance: none;
+            appearance: none;
             width: 100%;
-            height: 8px;
-            background: #2a2a2a;
-            border-radius: 5px;
+            height: 6px;
+            background: #252538;
+            border-radius: 3px;
             outline: none;
-            opacity: 0.8;
-            transition: opacity .2s;
-            box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);
-        }
-        input[type="range"]:hover {
-            opacity: 1;
         }
         input[type="range"]::-webkit-slider-thumb {
             -webkit-appearance: none;
             appearance: none;
-            width: 18px;
-            height: 18px;
+            width: 16px;
+            height: 16px;
             border-radius: 50%;
             background: var(--primary-blue);
             cursor: grab;
-            box-shadow: 0 0 5px var(--primary-blue-glow);
-            transition: background 0.2s ease;
-        }
-        input[type="range"]::-webkit-slider-thumb:active {
-            cursor: grabbing;
-            background: #6af;
+            box-shadow: 0 0 6px var(--primary-blue-glow);
         }
         input[type="range"]::-moz-range-thumb {
-            width: 18px;
-            height: 18px;
+            width: 16px;
+            height: 16px;
             border-radius: 50%;
             background: var(--primary-blue);
             cursor: grab;
-            box-shadow: 0 0 5px var(--primary-blue-glow);
+            border: none;
+            box-shadow: 0 0 6px var(--primary-blue-glow);
         }
-        @keyframes param-flash {
-            0% { background-color: transparent; }
-            30% { background-color: rgba(68, 170, 255, 0.3); }
-            60% { background-color: transparent; }
-            100% { background-color: transparent; }
-        }
-        .param-flash-active {
-            animation: param-flash 1s ease-out;
-        }
-        .controls-section {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            justify-content: center;
-            margin-top: 10px;
-            padding: 10px 0;
-            border-top: 1px solid var(--border-dark);
-            border-bottom: 1px solid var(--border-dark);
-        }
-        button {
-            background: linear-gradient(135deg, #2a2a4a, #3a3a5a);
-            color: var(--text-light);
-            border: 1px solid #555;
-            padding: 8px 15px;
-            cursor: pointer;
-            border-radius: 6px;
-            font-family: inherit;
-            transition: all 0.2s ease;
-            font-weight: bold;
-            min-width: 120px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-            font-size: 0.95em;
-        }
-        button:hover {
-            background: linear-gradient(135deg, #3a3a5a, #4a4a6a);
-            box-shadow: 0 0 12px var(--primary-blue-glow);
-            transform: translateY(-2px);
-            border-color: var(--primary-blue);
-        }
-        button:active {
-            transform: translateY(0);
-            box-shadow: 0 2px 8px var(--primary-blue-glow);
-        }
-        button:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-            background: #2a2a4a;
-            box-shadow: none;
-        }
-        button.active {
-            background: linear-gradient(135deg, #5a5a7a, #6a6a8a);
-            box-shadow: 0 0 15px var(--primary-blue-glow);
-            border-color: var(--primary-blue);
-            color: #fff;
-        }
+
+        /* Sheaf Graph */
         .sheaf-graph {
             position: relative;
             height: 160px;
             margin: 15px 0;
-            background: rgba(0,0,0,0.2);
-            border-radius: 8px;
-            box-shadow: inset 0 0 8px rgba(0,0,0,0.3);
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: var(--radius-md);
+            border: 1px solid #23233c;
             overflow: hidden;
         }
         .sheaf-vertex-canvas {
@@ -357,100 +391,69 @@
             left: 0;
             width: 100%;
             height: 100%;
+            pointer-events: none;
         }
         .vertex {
-            width: 40px;
-            height: 24px;
-            border-radius: 4px;
+            width: 44px;
+            height: 26px;
+            border-radius: var(--radius-sm);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 9px;
-            font-weight: bold;
-            transition: all 0.2s ease;
+            font-size: 10px;
+            font-weight: 700;
+            transition: transform 0.2s ease;
             position: absolute;
-            color: white;
+            color: #fff;
             z-index: 10;
-            background: radial-gradient(circle, #ff6b6b, #e74c3c);
-            box-shadow: 0 0 8px rgba(255,107,107,0.5);
+            background: radial-gradient(circle, #ff6b6b, #c0392b);
+            box-shadow: 0 0 8px rgba(255, 107, 107, 0.4);
             cursor: help;
-            text-align: center;
-            padding: 2px;
-            box-sizing: border-box;
         }
         .vertex.active {
+            background: radial-gradient(circle, #00ff99, #00aa55);
+            box-shadow: 0 0 12px rgba(0, 255, 153, 0.7);
             animation: pulse 1.5s infinite;
-            background: radial-gradient(circle, #00ff99, #00cc66);
-            box-shadow: 0 0 12px rgba(0,255,153,0.8), 0 0 20px rgba(0,255,153,0.4);
         }
         @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.08); }
         }
-        .theoretical-info {
-            margin-top: 15px;
-            font-size: 11px;
-            color: var(--text-dark);
-            background: rgba(0,0,0,0.1);
-            padding: 10px;
-            border-radius: 6px;
-            white-space: pre-wrap;
-            overflow-x: auto;
-        }
+
+        /* 3D Agent Environment & Live2D */
         .game-container {
-            padding: 10px;
+            padding: 14px;
             position: relative;
         }
         #gameCanvas {
             width: 100%;
             height: auto;
             aspect-ratio: 16 / 9;
-            background: #000;
-            border: 1px solid #333;
-            border-radius: 6px;
-            margin-bottom: 12px;
-            image-rendering: auto;
+            background: #05050d;
+            border: 1px solid #2d2d48;
+            border-radius: var(--radius-md);
+            margin-bottom: 10px;
+            display: block;
         }
         #live2d-container {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    width: 330px; /* Increased from 300px to 330px (10% larger) */
-    aspect-ratio: 1/1.2;
-    background: transparent;
-    border-radius: 10px;
-    overflow: hidden;
-    z-index: 10;
-}
-#live2d-container canvas {
-    width: 100% !important;
-    height: 100% !important;
-}
+            position: absolute;
+            bottom: 24px;
+            right: 20px;
+            width: 260px;
+            aspect-ratio: 1 / 1.2;
+            background: transparent;
+            pointer-events: none;
+            z-index: 10;
+        }
+        #live2d-container canvas {
+            width: 100% !important;
+            height: 100% !important;
+        }
 
-/* Adjust for responsiveness */
-@media (max-width: 1200px) {
-    .content-grid { grid-template-columns: 1fr 1fr; }
-    .left-column { grid-column: 1 / -1; }
-    .center-column, .right-column { min-width: unset; width: 100%; }
-    #live2d-container { width: 248px; } /* Adjusted to 75% of 330px (rounded) */
-}
-@media (max-width: 800px) {
-    .content-grid { grid-template-columns: 1fr; }
-    body { padding: 10px; font-size: 12px; }
-    .header h1 { font-size: 1.5em; }
-    .header p { font-size: 0.9em; }
-    .panel, .game-container, .log-container { padding: 10px; }
-    .phi-display { font-size: 1.2em; }
-    button { min-width: unset; font-size: 0.9em; }
-    .charts-grid { grid-template-columns: 1fr; }
-    #live2d-container { width: 165px; } /* Adjusted to 50% of 330px (rounded) */
-}
+        /* Scoreboard */
         .score-container {
             display: flex;
             justify-content: space-around;
-            gap: 20px;
-            width: 100%;
             padding-top: 10px;
             border-top: 1px solid var(--border-dark);
         }
@@ -458,481 +461,460 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            font-size: 1.1em;
         }
         .score-metric .metric-label {
             color: var(--text-medium);
-            font-size: 0.8em;
-            margin-bottom: 3px;
+            font-size: 0.85em;
         }
-        .player-score .metric-value {
-            color: #ff9900;
-            font-size: 1.2em;
-        }
-        .ai-score .metric-value {
-            color: #44aaff;
-            font-size: 1.2em;
-        }
+        .player-score .metric-value { color: #ffa726; font-size: 1.3em; }
+        .ai-score .metric-value { color: var(--primary-blue); font-size: 1.3em; }
+
+        /* Neural Network Visualizer */
         .nn-visualizer-panel {
-            min-height: 120px;
+            min-height: 150px;
             display: flex;
             flex-direction: column;
+        }
+        .nn-visualization-container {
+            position: relative;
             flex-grow: 1;
-        }
-       /* In index.html, inside the <style> tag */
-
-/* DELETE the existing rules for:
-   #nn-visualization-container-main, #nn-visualization-container-opponent
-   .nn-layers-wrapper
-   .nn-layer
-   .nn-connections-canvas
-*/
-
-/* REPLACE them with this complete, corrected block */
-
-.nn-visualizer-panel .nn-visualization-container {
-    position: relative; /* This is the anchor for all absolutely positioned children */
-    flex-grow: 1;
-    min-height: 80px;
-}
-
-.nn-connections-canvas {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 5; /* In the background */
-    opacity: 0.7;
-}
-
-.nn-layers-wrapper {
-    position: relative; /* Let it sit in the normal document flow */
-    z-index: 10; /* On top of the canvas */
-    height: 100%;
-    display: flex;
-    justify-content: space-around; /* Distribute layers evenly */
-    align-items: center;
-    padding: 0 15px; /* Add some padding */
-}
-
-.nn-layer {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    height: 100%;
-    gap: 5px;
-}
-        .nn-neuron {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            border: 1px solid #888;
-            background: #333;
-            transition: background-color 0.1s ease-out, border-color 0.1s ease-out, box-shadow 0.1s ease-out;
-            flex-shrink: 0;
-            box-shadow: 0 0 3px rgba(0,0,0,0.5);
-            will-change: background-color, border-color, box-shadow;
-        }
-        .nn-neuron.active-action {
-            animation: pulse-action 0.8s infinite alternate;
-            box-shadow: 0 0 8px rgba(0, 255, 255, 0.9), 0 0 12px rgba(0, 255, 255, 0.5);
-        }
-        @keyframes pulse-action {
-            from { transform: scale(1); opacity: 1; }
-            to { transform: scale(1.2); opacity: 0.8; }
+            min-height: 110px;
+            background: #080814;
+            border-radius: var(--radius-md);
+            border: 1px solid #23233c;
+            overflow: hidden;
         }
         .nn-connections-canvas {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 5; /* Behind the layers */
-    opacity: 0.7;
-}
-        .neuron-flash {
-            animation: neuron-flash-anim 0.8s ease-out forwards;
-        }
-        @keyframes neuron-flash-anim {
-            0% { transform: scale(1.0); box-shadow: 0 0 10px rgba(255, 255, 255, 0.8); }
-            50% { transform: scale(1.3); box-shadow: 0 0 15px rgba(0, 255, 153, 0.9), 0 0 20px rgba(0, 255, 153, 0.5); }
-            100% { transform: scale(1.0); box-shadow: 0 0 5px rgba(0, 255, 153, 0.3); }
-        }
-        #concept-panel {
-            width: 100%;
-            aspect-ratio: 1/1;
-            background: #111;
-            border-radius: 8px;
-        }
-        .qualia-attention-panel {
-            background: rgba(0,0,0,0.2);
-            border-radius: 8px;
-            padding: 10px;
-            margin-top: 15px;
-        }
-        .qualia-attention-panel h4 {
-            margin: 0 0 10px 0;
-            font-size: 1.1em;
-            text-align: center;
-            color: var(--primary-blue);
-        }
-        .attention-bar-container {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 4px;
-            font-size: 12px;
-        }
-        .attention-label {
-            width: 110px;
-            color: var(--text-medium);
-            text-align: right;
-            flex-shrink: 0;
-        }
-        .attention-bar-wrapper {
-            flex-grow: 1;
-            height: 14px;
-            background: #111;
-            border: 1px solid #333;
-            border-radius: 3px;
-        }
-        .attention-bar {
-            height: 100%;
-            width: 0%;
-            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
-            border-radius: 2px;
-            transition: width 0.3s ease-out;
-        }
-        .charts-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
-        }
-        .chart-container {
-            background: rgba(0,0,0,0.2);
-            border-radius: 8px;
-            padding: 10px;
-        }
-        .chart-container h4 {
-            margin: 0 0 10px 0;
-            font-size: 0.9em;
-            text-align: center;
-            color: var(--primary-blue);
-        }
-        .chart-svg {
-            width: 100%;
-            height: 100px;
-        }
-        .loading-overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.7);
+            z-index: 5;
+            opacity: 0.75;
+            pointer-events: none;
+        }
+        .nn-layers-wrapper {
+            position: relative;
+            z-index: 10;
+            height: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 10px 15px;
+        }
+        .nn-layer {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            height: 100%;
+            gap: 6px;
+        }
+        .nn-neuron {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            border: 1px solid #667;
+            background: #252538;
+            transition: background-color 0.15s, box-shadow 0.15s;
+        }
+        .nn-neuron.active-action {
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.9);
+            border-color: #00ffff;
+        }
+
+        /* Qualia Attention & Charts */
+        .qualia-attention-panel {
+            background: rgba(0, 0, 0, 0.25);
+            border-radius: var(--radius-md);
+            padding: 12px;
+            margin-top: 15px;
+        }
+        .qualia-attention-panel h4, .chart-container h4 {
+            margin: 0 0 8px 0;
+            font-size: 0.95em;
+            text-align: center;
+            color: var(--primary-blue);
+        }
+        #concept-panel {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            background: #090914;
+            border-radius: var(--radius-md);
+            border: 1px solid #23233c;
+        }
+        .charts-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+        .chart-container {
+            background: rgba(0,0,0,0.25);
+            border-radius: var(--radius-md);
+            border: 1px solid #23233c;
+            padding: 10px;
+        }
+        .chart-svg {
+            width: 100%;
+            height: 90px;
+            display: block;
+        }
+
+        /* Log / Console */
+        .log-container {
+            background: var(--secondary-dark);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-dark);
+            padding: 16px;
+        }
+        #log {
+            background: #070710;
+            border: 1px solid #2d2d48;
+            border-radius: var(--radius-md);
+            padding: 10px;
+            height: 150px;
+            overflow-y: auto;
+            font-size: 12px;
+            color: #cbd5e1;
+            line-height: 1.5;
+            font-family: inherit;
+        }
+        .log-entry.error { color: var(--error-red); }
+        .log-entry.warn { color: var(--warn-orange); }
+        .log-entry.info { color: var(--info-green); }
+
+        /* Loading Overlays */
+        .loading-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(10, 10, 20, 0.85);
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            color: white;
-            font-size: 1.5em;
-            font-weight: bold;
-            border-radius: 10px;
-            z-index: 1000;
+            border-radius: var(--radius-lg);
+            z-index: 100;
             opacity: 0;
             pointer-events: none;
             transition: opacity 0.3s ease;
+            backdrop-filter: blur(4px);
         }
         .loading-overlay.active {
             opacity: 1;
             pointer-events: all;
         }
         .loading-spinner {
-            border: 4px solid #f3f3f3;
-            border-top: 4px solid var(--primary-blue);
+            border: 3px solid rgba(68, 170, 255, 0.2);
+            border-top: 3px solid var(--primary-blue);
             border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            animation: spin 1s linear infinite;
-            margin-bottom: 15px;
+            width: 36px;
+            height: 36px;
+            animation: spin 0.9s linear infinite;
+            margin-bottom: 12px;
         }
         @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            to { transform: rotate(360deg); }
         }
-        .loading-text {
-            font-size: 0.8em;
-            color: var(--text-medium);
+
+        /* Responsive Breakpoints */
+        @media (max-width: 1400px) {
+            .content-grid {
+                grid-template-columns: 340px 1fr 360px;
+            }
         }
-        .log-container {
-            flex-basis: 100%;
-            background: var(--secondary-dark);
-            border-radius: 12px;
-            border: 1px solid var(--border-dark);
-            padding: 15px;
-            grid-column: 1 / -1;
+        @media (max-width: 1100px) {
+            .content-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .left-column {
+                grid-column: 1 / -1;
+            }
+            #live2d-container {
+                width: 200px;
+            }
         }
-        #log {
-            background: #111;
-            border: 1px solid #444;
-            border-radius: 4px;
-            padding: 10px;
-            height: 150px;
-            overflow-y: auto;
-            font-size: 11px;
-            color: #ccc;
-            white-space: pre-wrap;
-            word-break: break-all;
-            line-height: 1.4;
-        }
-        .log-entry.error { color: var(--error-red); }
-        .log-entry.warn { color: var(--warn-orange); }
-        .log-entry.info { color: var(--info-green); }
-        @media (max-width: 1600px) {
-            .content-grid { grid-template-columns: 350px 1fr 400px; }
-        }
-        @media (max-width: 1200px) {
-            .content-grid { grid-template-columns: 1fr 1fr; }
-            .left-column { grid-column: 1 / -1; }
-            .center-column, .right-column { min-width: unset; width: 100%; }
-            #live2d-container { width: 150px; }
-        }
-        @media (max-width: 800px) {
-            .content-grid { grid-template-columns: 1fr; }
-            body { padding: 10px; font-size: 12px; }
-            .header h1 { font-size: 1.5em; }
-            .header p { font-size: 0.9em; }
-            .panel, .game-container, .log-container { padding: 10px; }
-            .phi-display { font-size: 1.2em; }
-            button { min-width: unset; font-size: 0.9em; }
-            .charts-grid { grid-template-columns: 1fr; }
-            #live2d-container { width: 100px; }
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+                font-size: 13px;
+            }
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            .header h1 {
+                font-size: 1.4em;
+            }
+            .charts-grid {
+                grid-template-columns: 1fr;
+            }
+            #live2d-container {
+                width: 140px;
+            }
+            button {
+                min-width: unset;
+                flex: 1 1 calc(50% - 8px);
+            }
         }
     </style>
 </head>
-<body role="document">
-    <div class="main-container" role="main">
+<body>
+    <main class="main-container">
         <header class="header" role="banner">
-            <h1>🧠 Unified Conscious AI Simulation v7.0 (Activated Sheaf-DIT)</h1>
-            <p>Integrating Sheaf-DIT with Phenomenology, Qualia Binding, and Structural Skepticism</p>
+            <h1>🧠 Unified Conscious AI Simulation v7.0</h1>
+            <p>Sheaf-DIT ⊕ Phenomenological Qualia Binding ⊕ Ontological World Models</p>
         </header>
+
         <div class="content-grid">
-            <div class="left-column">
-                <div class="panel" role="complementary" aria-labelledby="sheaf-dit-metrics-heading">
-                    <h3 id="sheaf-dit-metrics-heading">Sheaf-DIT Metrics (Main AI)</h3>
+            <!-- Left Column: Metrics & Qualia -->
+            <section class="left-column" aria-label="Simulation Metrics and Qualia Dynamics">
+                <div class="panel">
+                    <h3>Sheaf-DIT Metrics (Main AI)</h3>
                     <div class="framework-badge">Sheaf-DIT ⊕ OWM ⊕ Meta-Learning</div>
-                    <div class="status" id="status" aria-live="polite" aria-atomic="true">Initializing...</div>
-                    <div class="phi-display" id="phi-display" aria-live="polite" aria-atomic="true">Φ (UI Metric): 0.000</div>
-                    <div class="controls-section">
-                        <button id="toggleSimButton" aria-label="Toggle simulation run/pause (Spacebar)">🚀 Toggle Sim</button>
-                        <button id="resetSimButton" aria-label="Reset game and AI to initial state (R key)">🔄 Reset</button>
-                        <button id="tuneButton" aria-label="Tune AI parameters adaptively (T key)">⚙️ Tune</button>
-                        <button id="stepButton" aria-label="Advance simulation by one step (S key)">⏭️ Step</button>
-                        <button id="pauseButton" aria-label="Pause the simulation (P key)">⏸️ Pause</button>
-                        <button id="fastForwardButton" aria-label="Toggle fast forward simulation speed (F key)">⏩ Fast FW</button>
+                    <div class="status" id="status" aria-live="polite">Initializing...</div>
+                    <div class="phi-display" id="phi-display">Φ (UI Metric): 0.000</div>
+
+                    <div class="controls-section" role="toolbar" aria-label="Simulation Controls">
+                        <button type="button" id="toggleSimButton" title="Shortcut: Spacebar">🚀 Run</button>
+                        <button type="button" id="stepButton" title="Shortcut: S key">⏭️ Step</button>
+                        <button type="button" id="pauseButton" title="Shortcut: P key">⏸️ Pause</button>
+                        <button type="button" id="fastForwardButton" title="Shortcut: F key">⏩ Fast</button>
+                        <button type="button" id="tuneButton" title="Shortcut: T key">⚙️ Tune</button>
+                        <button type="button" id="resetSimButton" title="Shortcut: R key">🔄 Reset</button>
                     </div>
-                    <div class="qualia-viz" role="region" aria-labelledby="qualia-dynamics-heading">
-                        <h3 id="qualia-dynamics-heading" class="status">Qualia Diffusion Dynamics</h3>
-                        <div class="qualia-bar-container" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Shape Qualia Level">
+
+                    <!-- Qualia Bars -->
+                    <div class="qualia-viz" aria-label="Qualia Diffusion Levels">
+                        <div class="status" style="font-size: 0.95em; margin-bottom: 6px;">Qualia Diffusion Dynamics</div>
+                        
+                        <div class="qualia-bar-container">
                             <div class="qualia-bar qualia-shape" id="qualia-shape-fill"></div>
                             <span class="qualia-label">Shape</span>
                             <span class="qualia-value" id="shape-value">0.00</span>
                         </div>
-                        <div class="qualia-bar-container" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Emotion Qualia Level">
+                        <div class="qualia-bar-container">
                             <div class="qualia-bar qualia-emotion" id="qualia-emotion-fill"></div>
                             <span class="qualia-label">Emotion</span>
                             <span class="qualia-value" id="emotion-value">0.00</span>
                         </div>
-                        <div class="qualia-bar-container" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Symbolic Qualia Level">
+                        <div class="qualia-bar-container">
                             <div class="qualia-bar qualia-symbolic" id="qualia-symbolic-fill"></div>
                             <span class="qualia-label">Symbolic</span>
                             <span class="qualia-value" id="symbolic-value">0.00</span>
                         </div>
-                        <div class="qualia-bar-container" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Synesthesia Qualia Level">
+                        <div class="qualia-bar-container">
                             <div class="qualia-bar qualia-synesthesia" id="qualia-synesthesia-fill"></div>
                             <span class="qualia-label">Synesthesia</span>
                             <span class="qualia-value" id="synesthesia-value">0.00</span>
                         </div>
-                        <div class="qualia-bar-container" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Metacognition Qualia Level">
+                        <div class="qualia-bar-container">
                             <div class="qualia-bar qualia-metacognition" id="qualia-metacognition-fill"></div>
                             <span class="qualia-label">Metacognition</span>
                             <span class="qualia-value" id="metacognition-value">0.00</span>
                         </div>
-                        <div class="qualia-bar-container" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Social Qualia Level">
+                        <div class="qualia-bar-container">
                             <div class="qualia-bar qualia-social" id="qualia-social-fill"></div>
                             <span class="qualia-label">Social</span>
                             <span class="qualia-value" id="social-value">0.00</span>
                         </div>
-                        <div class="qualia-bar-container" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Temporal Qualia Level">
+                        <div class="qualia-bar-container">
                             <div class="qualia-bar qualia-temporal" id="qualia-temporal-fill"></div>
                             <span class="qualia-label">Temporal</span>
                             <span class="qualia-value" id="temporal-value">0.00</span>
                         </div>
                     </div>
-                    <div class="metric-group" role="group" aria-labelledby="theoretical-metrics-heading">
-                        <h3 id="theoretical-metrics-heading" class="status">Theoretical Metrics (Theorems)</h3>
-                        <div class="metric"><span class="metric-label">Feel Intensity (F):</span><span class="metric-value" id="feel-F-display" aria-live="polite" aria-atomic="true">0.000</span></div>
-                        <div class="metric"><span class="metric-label">Intentionality (F_int):</span><span class="metric-value" id="intentionality-display" aria-live="polite" aria-atomic="true">0.000</span></div>
-                        <div class="metric"><span class="metric-label">Cup Product (H²):</span><span class="metric-value" id="cup-product-intensity" aria-live="polite" aria-atomic="true">0.0000</span></div>
-                        <div class="metric"><span class="metric-label">Structural Sensitivity:</span><span class="metric-value" id="structural-sensitivity-display" aria-live="polite" aria-atomic="true">0.000</span></div>
-                        <div class="metric"><span class="metric-label">Gestalt Unity:</span><span class="metric-value" id="gestalt-unity" aria-live="polite" aria-atomic="true">0.000</span></div>
-                        <div class="metric"><span class="metric-label">dim H¹ (Betti):</span><span class="metric-value" id="h1-dimension" aria-live="polite" aria-atomic="true">0.00</span></div>
-                        <div class="metric"><span class="metric-label">Gluing Inconsistency:</span><span class="metric-value" id="inconsistency" aria-live="polite" aria-atomic="true">0.000</span></div>
+
+                    <!-- Theoretical Metrics -->
+                    <div style="margin-top: 15px;">
+                        <div class="status" style="font-size: 0.95em; margin-bottom: 6px;">Theoretical Metrics</div>
+                        <div class="metric"><span class="metric-label">Feel Intensity (F):</span><span class="metric-value" id="feel-F-display">0.000</span></div>
+                        <div class="metric"><span class="metric-label">Intentionality (F_int):</span><span class="metric-value" id="intentionality-display">0.000</span></div>
+                        <div class="metric"><span class="metric-label">Cup Product (H²):</span><span class="metric-value" id="cup-product-intensity">0.0000</span></div>
+                        <div class="metric"><span class="metric-label">Structural Sensitivity:</span><span class="metric-value" id="structural-sensitivity-display">0.000</span></div>
+                        <div class="metric"><span class="metric-label">Gestalt Unity:</span><span class="metric-value" id="gestalt-unity">0.000</span></div>
+                        <div class="metric"><span class="metric-label">dim H¹ (Betti):</span><span class="metric-value" id="h1-dimension">0.00</span></div>
+                        <div class="metric"><span class="metric-label">Gluing Inconsistency:</span><span class="metric-value" id="inconsistency">0.000</span></div>
                     </div>
-                    <div class="qualia-attention-panel" id="qualiaAttentionPanel" role="region" aria-labelledby="qualia-attention-heading">
-                        <h4 id="qualia-attention-heading">Qualia Attention (Main AI)</h4>
+
+                    <div class="qualia-attention-panel" id="qualiaAttentionPanel">
+                        <h4>Qualia Attention (Main AI)</h4>
                     </div>
-                    <div class="sheaf-graph" id="sheafGraph" role="img" aria-label="Sheaf graph visualizing information flow between concepts">
-                        <canvas id="sheafGraphCanvas" class="sheaf-vertex-canvas" aria-hidden="true"></canvas>
-                        <div class="vertex" id="vertex-0" aria-label="Agent X Position">Ag-X</div>
-                        <div class="vertex" id="vertex-1" aria-label="Agent Z Position">Ag-Z</div>
-                        <div class="vertex" id="vertex-2" aria-label="Agent Rotation">Ag-Rot</div>
-                        <div class="vertex" id="vertex-3" aria-label="Target X Position">Tgt-X</div>
-                        <div class="vertex" id="vertex-4" aria-label="Target Z Position">Tgt-Z</div>
-                        <div class="vertex" id="vertex-5" aria-label="Vector to Target X">Vec-DX</div>
-                        <div class="vertex" id="vertex-6" aria-label="Vector to Target Z">Vec-DZ</div>
-                        <div class="vertex" id="vertex-7" aria-label="Distance to Target">Dist</div>
+
+                    <!-- Sheaf Topology Graph -->
+                    <div class="sheaf-graph" id="sheafGraph">
+                        <canvas id="sheafGraphCanvas" class="sheaf-vertex-canvas"></canvas>
+                        <div class="vertex" id="vertex-0" title="Agent X Position" style="top:20px; left:20px;">Ag-X</div>
+                        <div class="vertex" id="vertex-1" title="Agent Z Position" style="top:20px; left:100px;">Ag-Z</div>
+                        <div class="vertex" id="vertex-2" title="Agent Rotation" style="top:20px; left:180px;">Ag-Rot</div>
+                        <div class="vertex" id="vertex-3" title="Target X Position" style="top:20px; left:260px;">Tgt-X</div>
+                        <div class="vertex" id="vertex-4" title="Target Z Position" style="bottom:20px; left:20px;">Tgt-Z</div>
+                        <div class="vertex" id="vertex-5" title="Vector to Target X" style="bottom:20px; left:100px;">Vec-DX</div>
+                        <div class="vertex" id="vertex-6" title="Vector to Target Z" style="bottom:20px; left:180px;">Vec-DZ</div>
+                        <div class="vertex" id="vertex-7" title="Distance to Target" style="bottom:20px; left:260px;">Dist</div>
                     </div>
-                    <div class="metric-group" role="group" aria-labelledby="system-stability-heading">
-                        <h3 id="system-stability-heading" class="status">System Stability</h3>
-                        <div class="stability-gauge" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="System Stability">
+
+                    <!-- Stability Parameters -->
+                    <div>
+                        <div class="status" style="font-size: 0.95em; margin-bottom: 6px;">System Stability</div>
+                        <div class="stability-gauge">
                             <div class="stability-fill" id="stability-fill"></div>
                         </div>
+
                         <div class="slider-container">
-                            <label class="slider-label" for="alphaSlider">α Parameter: <span class="metric-value" id="alpha-param">0.500</span></label>
-                            <input type="range" id="alphaSlider" min="0.01" max="1" step="0.01" value="0.5" aria-labelledby="alphaSlider-label" aria-valuetext="0.500">
+                            <label class="slider-label" id="alphaSlider-label" for="alphaSlider">
+                                <span>α (Diffusion Coeff):</span>
+                                <span class="metric-value" id="alpha-param">0.500</span>
+                            </label>
+                            <input type="range" id="alphaSlider" min="0.01" max="1" step="0.01" value="0.5">
                         </div>
                         <div class="slider-container">
-                            <label class="slider-label" for="betaSlider">β Parameter: <span class="metric-value" id="beta-param">0.500</span></label>
-                            <input type="range" id="betaSlider" min="0.01" max="1" step="0.01" value="0.5" aria-labelledby="betaSlider-label" aria-valuetext="0.500">
+                            <label class="slider-label" id="betaSlider-label" for="betaSlider">
+                                <span>β (Restriction Decay):</span>
+                                <span class="metric-value" id="beta-param">0.500</span>
+                            </label>
+                            <input type="range" id="betaSlider" min="0.01" max="1" step="0.01" value="0.5">
                         </div>
                         <div class="slider-container">
-                            <label class="slider-label" for="gammaSlider">γ Parameter: <span class="metric-value" id="gamma-param">0.100</span></label>
-                            <input type="range" id="gammaSlider" min="0.01" max="0.5" step="0.01" value="0.1" aria-labelledby="gammaSlider-label" aria-valuetext="0.100">
+                            <label class="slider-label" id="gammaSlider-label" for="gammaSlider">
+                                <span>γ (Cup Coupling):</span>
+                                <span class="metric-value" id="gamma-param">0.100</span>
+                            </label>
+                            <input type="range" id="gammaSlider" min="0.01" max="0.5" step="0.01" value="0.1">
                         </div>
                     </div>
-                    <div class="loading-overlay" id="metricsLoadingOverlay" aria-live="assertive" aria-busy="true" aria-label="Loading metrics and computations">
+
+                    <div class="loading-overlay" id="metricsLoadingOverlay">
                         <div class="loading-spinner"></div>
                         <div class="loading-text" id="metricsLoadingText">Processing...</div>
                     </div>
                 </div>
-            </div>
-            <div class="center-column">
-                <div class="panel game-container" role="region" aria-labelledby="game-env-heading">
-                    <h3 id="game-env-heading">🤖 3D Agent Environment</h3>
+            </section>
+
+            <!-- Center Column: 3D Environment & Neural Networks -->
+            <section class="center-column" aria-label="Environment and Brain Models">
+                <div class="panel game-container">
+                    <h3>🤖 3D Agent Environment</h3>
                     <div style="position: relative;">
-                        <canvas id="gameCanvas" role="img" aria-label="3D Game Environment with two AI agents navigating to targets"></canvas>
-                        <div id="live2d-container" role="img" aria-label="Live2D Avatar overlay"></div>
+                        <canvas id="gameCanvas">
+                            Your browser does not support HTML5 Canvas.
+                        </canvas>
+                        <div id="live2d-container"></div>
                     </div>
+                    
                     <div class="score-container">
                         <div class="score-metric player-score">
-                            <span class="metric-label">Opponent Score:</span>
-                            <span id="player-score" class="metric-value" aria-live="polite" aria-atomic="true">0</span>
+                            <span class="metric-label">Opponent Score</span>
+                            <span id="player-score" class="metric-value">0</span>
                         </div>
                         <div class="score-metric ai-score">
-                            <span class="metric-label">Main AI Score:</span>
-                            <span id="ai-score" class="metric-value" aria-live="polite" aria-atomic="true">0</span>
+                            <span class="metric-label">Main AI Score</span>
+                            <span id="ai-score" class="metric-value">0</span>
                         </div>
                     </div>
-                    <div class="loading-overlay" id="gameLoadingOverlay" aria-live="assertive" aria-busy="true" aria-label="Loading game and AI">
+
+                    <div class="loading-overlay" id="gameLoadingOverlay">
                         <div class="loading-spinner"></div>
-                        <div class="loading-text" id="gameLoadingText">Setting up game...</div>
+                        <div class="loading-text" id="gameLoadingText">Setting up 3D environment...</div>
                     </div>
                 </div>
-                <div class="panel nn-visualizer-panel" role="region" aria-labelledby="main-ai-brain-heading">
-                    <h3 id="main-ai-brain-heading">🧠 Main AI OWM</h3>
-                    <p>Sheaf-DIT consciousness metrics are displayed in the metrics panel.</p>
-                    <!-- CRITICAL FIX: Replace the div with the required canvas element -->
-<div id="mainBrainCanvas" class="nn-visualization-container">
+
+                <!-- Main AI Neural Representation -->
+                <div class="panel nn-visualizer-panel">
+                    <h3>🧠 Main AI OWM</h3>
+                    <p>Internal network activations & policy latent space</p>
+                    <div id="mainBrainCanvas" class="nn-visualization-container">
+                        <canvas class="nn-connections-canvas"></canvas>
+                        <div class="nn-layers-wrapper"></div>
                     </div>
-                    <div class="loading-overlay" id="mainBrainLoadingOverlay" aria-live="assertive" aria-busy="true" aria-label="Loading main AI brain">
+                    <div class="loading-overlay" id="mainBrainLoadingOverlay">
                         <div class="loading-spinner"></div>
-                        <div class="loading-text" id="mainBrainLoadingText">Initializing main AI model...</div>
+                        <div class="loading-text" id="mainBrainLoadingText">Initializing Main Model...</div>
                     </div>
                 </div>
-<div class="panel nn-visualizer-panel" role="region" aria-labelledby="opponent-brain-heading">
-                    <h3 id="opponent-brain-heading">🤖 Opponent AI OWM</h3>
-                    <p>This AI learns independently using its own ontological world model.</p>
-                    <!-- CRITICAL FIX: Replace the div with the required canvas element -->
-<div id="opponentBrainCanvas" class="nn-visualization-container">
+
+                <!-- Opponent AI Neural Representation -->
+                <div class="panel nn-visualizer-panel">
+                    <h3>🤖 Opponent AI OWM</h3>
+                    <p>Independent agent latent dynamics & policy state</p>
+                    <div id="opponentBrainCanvas" class="nn-visualization-container">
+                        <canvas class="nn-connections-canvas"></canvas>
+                        <div class="nn-layers-wrapper"></div>
                     </div>
-                    <div class="loading-overlay" id="opponentBrainLoadingOverlay" aria-live="assertive" aria-busy="true" aria-label="Loading opponent AI brain">
+                    <div class="loading-overlay" id="opponentBrainLoadingOverlay">
                         <div class="loading-spinner"></div>
-                        <div class="loading-text" id="opponentBrainLoadingText">Initializing opponent model...</div>
+                        <div class="loading-text" id="opponentBrainLoadingText">Initializing Opponent Model...</div>
                     </div>
                 </div>
-            </div>
-            <div class="right-column">
+            </section>
+
+            <!-- Right Column: Graphs & Diagnostics -->
+            <section class="right-column" aria-label="Knowledge Graph and Performance Charts">
                 <div class="panel">
                     <h3>Concept Knowledge Graph</h3>
                     <div id="concept-panel"></div>
                 </div>
+
                 <div class="panel">
                     <h3>Performance Metrics</h3>
                     <div class="charts-grid">
                         <div class="chart-container">
                             <h4>Avg. State Value</h4>
-                            <svg id="qValueChart" class="chart-svg" role="img" aria-label="Average State Value over time"></svg>
+                            <svg id="qValueChart" class="chart-svg" aria-label="Q-Value Chart"></svg>
                         </div>
                         <div class="chart-container">
                             <h4>Score Diff (AI-Opp)</h4>
-                            <svg id="scoreChart" class="chart-svg" role="img" aria-label="Score difference between AI and Opponent over time"></svg>
+                            <svg id="scoreChart" class="chart-svg" aria-label="Score Differential Chart"></svg>
                         </div>
                         <div class="chart-container">
-                            <h4>Cup Product Intensity</h4>
-                            <svg id="cupProductChart" class="chart-svg" role="img" aria-label="Cup Product Intensity over time"></svg>
+                            <h4>Cup Product</h4>
+                            <svg id="cupProductChart" class="chart-svg" aria-label="Cup Product Chart"></svg>
                         </div>
                         <div class="chart-container">
                             <h4>Structural Sensitivity</h4>
-                            <svg id="structuralSensitivityChart" class="chart-svg" role="img" aria-label="Structural Sensitivity over time"></svg>
+                            <svg id="structuralSensitivityChart" class="chart-svg" aria-label="Structural Sensitivity Chart"></svg>
                         </div>
                     </div>
                 </div>
+
                 <div class="panel">
                     <h3>Advanced Controls</h3>
                     <div class="controls-section">
-                        <button id="testTopologyButton" aria-label="Test topology adaptation (A key)">🔍 Test Topology</button>
+                        <button type="button" id="testTopologyButton" title="Shortcut: A key">🔍 Test Topology</button>
                     </div>
                 </div>
-            </div>
-            <div class="log-container" role="log" aria-labelledby="system-console-heading">
-                <h3 id="system-console-heading">🔧 System Console</h3>
-                <div id="log" tabindex="0" aria-live="polite" aria-atomic="true"></div>
-            </div>
+            </section>
+
+            <!-- Bottom: System Console -->
+            <section class="log-container" aria-label="Console Output">
+                <h3 style="margin-top:0; color:var(--primary-blue);">🔧 System Console</h3>
+                <div id="log" role="log" aria-live="polite" tabindex="0"></div>
+            </section>
         </div>
-    </div>
+    </main>
 
-    <!-- Import Map for ES Modules -->
-      <script type="importmap">
-{
-  "imports": {
-    "numeric": "https://cdnjs.cloudflare.com/ajax/libs/numeric/1.2.6/numeric.min.js",
-    "three": "https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.module.js",
-    "three/examples/jsm/utils/BufferGeometryUtils.js": "https://cdn.jsdelivr.net/npm/three@0.128.0/examples/jsm/utils/BufferGeometryUtils.js",
-    "three/examples/jsm/controls/OrbitControls.js": "https://cdn.jsdelivr.net/npm/three@0.128.0/examples/jsm/controls/OrbitControls.js",
-    "three/examples/jsm/renderers/CSS2DRenderer.js": "https://cdn.jsdelivr.net/npm/three@0.128.0/examples/jsm/renderers/CSS2DRenderer.js"
-  }
-}
-</script>
+    <!-- Import Map: Clean and unified ES module resolution -->
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.module.js",
+            "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.128.0/examples/jsm/"
+        }
+    }
+    </script>
 
-    <!-- Numeric.js must load first, synchronously -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/numeric/1.2.6/numeric.min.js"></script>
+    <!-- Core Global Mathematical & Neural Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/numeric/1.2.6/numeric.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.18.0/dist/tf.min.js"></script>
 
-<!-- TensorFlow.js (defer is okay) -->
-<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
-<script type="module" src="qualia-sheaf.js"></script>
-<!-- Other Global Libraries (defer is fine) -->
-<script src="https://cdn.jsdelivr.net/npm/pixi.js@6.5.10/dist/browser/pixi.min.js" defer></script>
-<script src="https://cubism.live2d.com/sdk-web/cubismcore/live2dcubismcore.min.js" defer></script>
-<script src="https://cdn.jsdelivr.net/npm/pixi-live2d-display@0.4.0/dist/cubism4.min.js" defer></script>
-<script src="https://unpkg.com/@popperjs/core@2" defer></script>
-<script src="https://unpkg.com/tippy.js@6" defer></script>
+    <!-- 2D Rendering & Live2D Frameworks -->
+    <script src="https://cdn.jsdelivr.net/npm/pixi.js@6.5.10/dist/browser/pixi.min.js" defer></script>
+    <script src="https://cubism.live2d.com/sdk-web/cubismcore/live2dcubismcore.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/pixi-live2d-display@0.4.0/dist/cubism4.min.js" defer></script>
+    <script src="https://unpkg.com/@popperjs/core@2" defer></script>
+    <script src="https://unpkg.com/tippy.js@6" defer></script>
 
-<!-- Main Application Script (module) -->
-<script type="module" src="./main.js"></script>
-
+    <!-- Application ES Modules -->
+    <script type="module" src="./qualia-sheaf.js"></script>
+    <script type="module" src="./main.js"></script>
 </body>
 </html>
